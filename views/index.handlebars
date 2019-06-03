@@ -5,7 +5,11 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
+    {{!-- devoured on top --}}
+     <li>
+         {{burger_name}}
+     </li>
+     <button class="not-devou">Devour burger! </button>
     {{/unless}}
   {{/each}}
 </ul>
@@ -15,24 +19,21 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
+     <li>
+         {{burger_name}}
+     </li>
     {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add a Burger</h2>
-<form class="create-form">
+<form action="/api/burgers" method="POST" class="create-form">
 
   <div class="form-group">
     <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
-  </div>
+    <input type="text" id="bu" name="burger_name">
+  </div> 
 
-  <div class="form-group">
-    <label for="devou">Sleepy?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> No Devoured
-  </div>
-
-  <button type="submit">Add Burger</button>
+  <button  type="submit">Add Burger</button>
 </form>
+

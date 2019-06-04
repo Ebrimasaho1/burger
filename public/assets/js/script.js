@@ -1,8 +1,13 @@
 //console.log("burger time!");
-$(".not-devou").click( function(){
+$(".not-devou").click( function(e){
+    e.preventDefault();
     console.log("burger time!");
     var id = $(this).data("id");
-    var newDevour = $(this).data("newDevour");
+    var newDevour = $(this).data("devoured");
+    console.log(id);
+    console.log(newDevour);
+    console.log(this);
+    
 
     var newDevourState = {
         devoured:newDevour
